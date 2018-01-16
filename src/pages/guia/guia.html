@@ -1,12 +1,12 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Guia</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
   <ion-searchbar (ionInput)="getBtns($event)"></ion-searchbar>
-  <button (click)="getPage(btn)"  ion-button full *ngFor="let btn of btns">
+  <button (click)="getPage(btn.title.rendered, btn.id)"  ion-button full *ngFor="let btn of btns">
     {{ btn.title.rendered }}
   </button>
 </ion-content>

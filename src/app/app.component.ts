@@ -19,4 +19,7 @@ export class MyApp {
       splashScreen.hide();
     });
   }
+
+  goToPage(url){
+  }
 }

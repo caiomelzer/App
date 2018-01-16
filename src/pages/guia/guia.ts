@@ -1,23 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from '@angular/common/http';
+import { GuiaDetalhePage } from '../../pages/guia-detalhe/guia-detalhe';
 
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-guia',
+  templateUrl: 'guia.html'
 })
-export class HomePage{
+export class GuiaPage{
 
   searchQuery: string = '';
   btns: any;
+  
 
-  constructor(private http: HttpClient,
-      navParams: NavParams,
-      public navCtrl: NavController,) {
+  constructor(private http: HttpClient,navParams: NavParams,public navCtrl: NavController) {
     this.getAllPages();
-    
-  }
+ }
 
   getAllPages() {
     this.http.get('http://www.porteirinha.com.br/wp-json/wp/v2/pages?per_page=100&status=publish&parent=0').subscribe(data => {
@@ -26,12 +25,8 @@ export class HomePage{
     });
   }
 
-  getPage(btn){
-    console.log(btn)
-    this.http.get('http://www.porteirinha.com.br/wp-json/wp/v2/pages?per_page=100&status=publish&parent=0').subscribe(data => {
-      this.btns = data;
-      console.log(this.btns);
-    });
+  getPage(btnTitle, btnId){
+    this.navCtrl.push(GuiaDetalhePage,{id: btnId, title: btnTitle});
   }
 
   getBtns(ev: any) {
