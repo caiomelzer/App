@@ -16,10 +16,12 @@ import {HttpClient} from '@angular/common/http';
 })
 export class GuiaDetalhePage {
   header: string;
+  category: any;
   items: any;
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {
     this.header = this.navParams.get('title');
-    this.http.get('http://www.porteirinha.com.br/wp-json/wp/v2/posts?parent='+this.navParams.get('id')+'&per_page=100&status=publish').subscribe(data => {
+    this.category = this.navParams.get('id');
+    this.http.get('http://www.porteirinha.com.br/wp-json/wp/v2/posts?categories='+this.category+'&per_page=100&status=publish&orderby=title&order=asc').subscribe(data => {
       this.items = data;
     });
     console.log(this.navParams);
