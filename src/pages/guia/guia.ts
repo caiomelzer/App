@@ -21,7 +21,6 @@ export class GuiaPage{
   getAllPages() {
     this.http.get('http://www.porteirinha.com.br/wp-json/wp/v2/categories?per_page=100&orderby=name&order=asc&parent=93').subscribe(data => {
       this.btns = data;
-      console.log(this.btns);
     });
   }
 
@@ -30,7 +29,6 @@ export class GuiaPage{
   }
 
   getBtns(ev: any) {
-    this.getAllPages();
     let val = ev.target.value;
     if (val && val.trim() != '') {
       var btns =  this.btns.filter(function(item){
