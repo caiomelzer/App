@@ -34,8 +34,8 @@ export class GuiaPage{
     let val = ev.target.value;
     if (val && val.trim() != '') {
       var btns =  this.btns.filter(function(item){
-        if(item.title.rendered.indexOf(val) > -1)
-          return item.title.rendered;
+        if(item.name.indexOf(val) > -1)
+          return item.name;
       });
       this.btns = btns;
     }
