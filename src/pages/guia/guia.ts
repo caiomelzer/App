@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import {HttpClient} from '@angular/common/http';
 import { GuiaDetalhePage } from '../../pages/guia-detalhe/guia-detalhe';
+import { DataProvider } from '../../providers/data/data';
 
 
 @Component({
@@ -13,19 +14,16 @@ export class GuiaPage{
   searchQuery: string = '';
   btns: any;
   
+  constructor(private http: HttpClient,navParams: NavParams,public navCtrl: NavController, public DataProvider: DataProvider){
+    this.getAllPages(DataProvider.getGuiaData(null));
+  }
 
-  constructor(private http: HttpClient,navParams: NavParams,public navCtrl: NavController) {
-    this.getAllPages();
- }
-
-  getAllPages() {
-    this.http.get('http://www.porteirinha.com.br/wp-json/wp/v2/categories?per_page=100&orderby=name&order=asc&parent=93').subscribe(data => {
-      this.btns = data;
-    });
+  getAllPages(data) {
+    this.btns = data;
   }
 
   getPage(btnTitle, btnId){
-    this.navCtrl.push(GuiaDetalhePage,{id: btnId, title: btnTitle});
+    this.navCtrl.push(GuiaDetalhePage, {category: btnId, title: btnTitle});
   }
 
   getBtns(ev: any) {

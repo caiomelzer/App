@@ -38,7 +38,31 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  twitter: (
+    base: #55acee,
+    contrast: #ffffff
+  ),
+  facebook:(
+    base: #3B5998,
+    contrast: #ffffff
+  ),
+  whatsapp:(
+    base: #25d366,
+    contrast: #ffffff
+  ),
+  pinterest:(
+    base: #bd081c,
+    contrast: #ffffff
+  ),
+  googleplus:(
+    base: #fbbc05,
+    contrast: #ffffff
+  ),
+  mail:(
+    base: #505264,
+    contrast: #ffffff
+  )
 );
 
 

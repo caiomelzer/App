@@ -6,7 +6,7 @@
 
 <ion-content padding>
   <ion-searchbar (ionInput)="getBtns($event)"></ion-searchbar>
-  <button (click)="getPage(btn.name, btn.id)"  ion-button full *ngFor="let btn of btns">
+  <button (click)="getPage(btn.name, btn.category)"  ion-button full *ngFor="let btn of btns">
     {{ btn.name }}
   </button>
 </ion-content>

@@ -14,7 +14,21 @@
 
 
 <ion-content padding>
-<button ion-button full *ngFor="let item of items">
-    {{ item.id }} | {{ item.title.rendered }}
-    </button>
+  <ion-card *ngFor="let item of items">
+    <ion-item>
+      <h2 class="title">{{ item.title }}</h2>
+      <p *ngIf="item.address !== undefined"><strong><ion-icon name="pin"></ion-icon> Endereço:</strong> {{ item.address }}</p>
+    </ion-item>
+    <ion-card-content>
+      <a href="fb://{{item.facebook}}" *ngIf="item.facebook !== undefined" (click)="share('facebook', item.facebook)" ion-button icon-only color="facebook"><ion-icon name="logo-facebook"></ion-icon></a>
+      <a href="twitter://{{item.twitter}}" *ngIf="item.twitter !== undefined" (click)="share('twitter', item.twitter)" ion-button icon-only color="twitter"><ion-icon name="logo-twitter"></ion-icon></a>
+      <a href="https://api.whatsapp.com/send?phone={{item.whatsapp}}" *ngIf="item.whatsapp !== undefined" (click)="share('whatsapp', item.whatsapp)" ion-button icon-only color="whatsapp"><ion-icon name="logo-whatsapp"></ion-icon></a>
+      <a href="gplus://{{googleplus}}" *ngIf="item.googleplus !== undefined" (click)="share('googleplus', item.googleplus)" ion-button icon-only color="googleplus"><ion-icon name="logo-googleplus"></ion-icon></a>
+      <a href="mailto:{{item.mail}}" *ngIf="item.mail !== undefined" (click)="share('mail', item.mail)" ion-button icon-only color="mail"><ion-icon name="mail"></ion-icon></a>
+    </ion-card-content>
+    <a href="tel:{{item.tel}}" *ngIf="item.tel !== undefined" full ion-button icon-left>
+          <ion-icon name="call"></ion-icon>
+          <div>{{item.tel}}</div>
+        </a>
+  </ion-card>
 </ion-content>

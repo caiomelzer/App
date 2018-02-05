@@ -1,12 +1,11 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { IonicApp, IonicModule, IonicErrorHandler} from 'ionic-angular';
+import { IonicApp, IonicModule, IonicErrorHandler, ActionSheetController } from 'ionic-angular';
 import { MyApp } from './app.component';
 import {HttpClientModule} from '@angular/common/http';
 
-import { AboutPage } from '../pages/about/about';
-import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
+import { AnunciePage } from '../pages/anuncie/anuncie';
+import { ContatoPage } from '../pages/contato/contato';
 import { TabsPage } from '../pages/tabs/tabs';
 import { GuiaPage } from '../pages/guia/guia';
 import { GuiaDetalhePage } from '../pages/guia-detalhe/guia-detalhe';
@@ -18,9 +17,8 @@ import { DataProvider } from '../providers/data/data';
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    AnunciePage,
+    ContatoPage,
     TabsPage,
     GuiaPage,
     GuiaDetalhePage
@@ -33,9 +31,8 @@ import { DataProvider } from '../providers/data/data';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
-    ContactPage,
-    HomePage,
+    AnunciePage,
+    ContatoPage,
     TabsPage,
     GuiaPage,
     GuiaDetalhePage
