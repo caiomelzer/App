@@ -16,14 +16,19 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: 'contato.html',
 })
 export class ContatoPage {
-  dataform = {};
-  
+  dataform = {
+    _wpcf7: 12607,
+    _wpcf7_version : '4.9',
+    _wpcf7_locale : 'en_US',
+    _wpcf7_unit_tag : 'wpcf7-f12607-p12604-o1',
+   _wpcf7_container_post : 12604
+  };
+    
   constructor(public toastCtrl: ToastController, private http: HttpClient, public navCtrl: NavController, public navParams: NavParams) {
     //Nada a declarar...
   }
   
   contatoForm(){
-    console.log(this.dataform);
     this.dataform._wpcf7 = 12607; 
     this.dataform._wpcf7_version = '4.9';
     this.dataform._wpcf7_locale = 'en_US';
